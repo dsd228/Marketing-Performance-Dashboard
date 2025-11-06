@@ -1,1 +1,6 @@
-
+fecha,canal,usuarios,sesiones,tasa_rebote,duracion_media_seg,conversiones
+2025-08-01,Organic,18500,24500,0.48,160,210
+2025-08-01,Search Ads,16400,19850,0.42,140,310
+2025-08-01,Shopping,8200,9300,0.36,145,410
+2025-08-01,Social,4200,5200,0.55,95,60
+2025-08-01,Referral,1600,1700,0.60,90,10

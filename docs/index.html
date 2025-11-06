@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Deliverables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        article {
+            padding: 20px;
+            background: #ffffff;
+            margin: 20px 0;
+        }
+        .embed {
+            width: 100%;
+            height: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        function showPDF(pdfUrl) {
+            window.open(pdfUrl);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Project Deliverables</h1>
+    </header>
+    <div class="container">
+        <article>
+            <h2>Images</h2>
+            <img src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/path/to/image.png" alt="Project Image">
+        </article>
+        <article>
+            <h2>PDFs</h2>
+            <button onclick="showPDF('https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/path/to/document.pdf')">View PDF</button>
+        </article>
+        <article>
+            <h2>Markdown</h2>
+            <p>This would be rendered Markdown content.</p>
+        </article>
+        <article>
+            <h2>PPTX Download</h2>
+            <a href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/path/to/presentation.pptx" download>PPTX Download</a>
+        </article>
+    </div>
+</body>
+</html>

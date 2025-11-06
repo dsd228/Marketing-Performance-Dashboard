@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Performance de Marketing - Arcor</title>
+    
+    <!-- Favicon SVG Embebido -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- CDN de Marked.js (para Markdown) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/lib/marked.umd.min.js"></script>
+    
+    <!-- CDN de Chart.js (para Gráficas) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    
+    <!-- Estilos Embebidos -->
+    <style>
+        /* Ajuste para el padding del ancla con el header pegajoso */
+        :root {
+            scroll-padding-top: 5rem; /* Altura del header + un poco de espacio */
+        }
+        
+        /* Estilos para el contenido Markdown renderizado (clase .prose) */
+        .prose h1, .prose h2, .prose h3 {
+            font-weight: 700;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        .prose h1 { font-size: 2.25rem; }
+        .prose h2 { font-size: 1.875rem; }
+        .prose h3 { font-size: 1.5rem; }
+        .prose p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+        .prose ul, .prose ol {
+            margin-bottom: 1em;
+            margin-left: 1.5em;
+        }
+        .prose ul { list-style-type: disc; }
+        .prose ol { list-style-type: decimal; }
+        .prose a {
+            color: #2563eb; /* text-blue-600 */
+            text-decoration: underline;
+        }
+        .prose a:hover {
+            color: #1d4ed8; /* text-blue-800 */
+        }
+        .prose pre {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1em;
+        }
+        .prose code {
+            font-family: monospace;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1em;
+        }
+        .prose th, .prose td {
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .prose th {
+            background-color: #f9fafb; /* bg-gray-50 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans leading-normal">
+
+    <!-- Header / Navegación TOC -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-blue-600">📊 Dashboard Arcor</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#visual" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium" aria-label="Ir a Resumen Visual">Visual</a>
+                        <a href="#informe" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium" aria-label="Ir a Informe">Informe</a>
+                        <a href="#resumen" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium" aria-label="Ir a Resumen Ejecutivo">Resumen</a>
+                        <a href="#presentacion" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium" aria-label="Ir a Presentación">Presentación</a>
+                        <a href="#insights" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium" aria-label="Ir a Insights">Insights</a>
+                        <a href="#visualizaciones" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium" aria-label="Ir a Visualizaciones">Gráficas</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Bienvenida -->
+        <section class="bg-white p-8 rounded-lg shadow-lg mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Análisis de Performance de Marketing</h1>
+            <p class="text-lg text-gray-600">Este dashboard unificado contiene todos los entregables clave del proyecto de análisis de marketing para Arcor, rama `arcor-marketing-analysis`.</p>
+        </section>
+
+        <!-- 1. Resumen Visual (Imagen Embebida < 5MB) -->
+        <section id="visual" class="bg-white p-8 rounded-lg shadow-lg mb-12 min-h-[80vh]">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">1. Resumen Visual</h2>
+            <div class="mb-4">
+                <p class="text-gray-600">Imagen (PNG &lt; 5MB) incrustada usando Data URI Base64. Haz clic para abrir en una nueva pestaña.</p>
+                <!--
+                    TODO: Reemplazar el 'src' con el string Base64 de 'resultados/resumen_visual_dashboard.png'
+                    Este es un marcador de posición (placeholder) de 1x1 píxel rojo.
+                -->
+                <a href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==" target="_blank" rel="noopener noreferrer" title="Abrir imagen en nueva pestaña">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+                         alt="Resumen Visual del Dashboard de Marketing"
+                         class="w-full h-auto object-contain border-4 border-blue-200 rounded-lg shadow-md cursor-pointer hover:border-blue-400 transition-all duration-300"
+                         style="max-height: 70vh; background-color: #f0f0f0;">
+                </a>
+            </div>
+            <!--
+                TODO: Reemplazar el 'href' con el mismo string Base64 de la imagen.
+            -->
+            <a href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+               download="resumen_visual_dashboard.png"
+               class="inline-flex items-center bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow hover:bg-blue-700 transition duration-300"
+               aria-label="Descargar Resumen Visual">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Descargar Imagen (resumen_visual_dashboard.png)
+            </a>
+        </section>
+
+        <!-- 2. Informe de Resultados (PDF Enlazado >= 5MB) -->
+        <section id="informe" class="bg-white p-8 rounded-lg shadow-lg mb-12 min-h-screen">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">2. Informe de Resultados (PDF)</h2>
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6 rounded-md" role="alert">
+                <p class="font-bold">Archivo Grande</p>
+                <p>Este archivo (<code>informe_resultados.pdf</code>) se detectó como &gt; 5MB. Se carga desde <code>./assets/</code> en lugar de incrustarse.</p>
+            </div>
+            <a href="./assets/informe_resultados.pdf"
+               download="informe_resultados.pdf"
+               class="inline-flex items-center bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow hover:bg-blue-700 transition duration-300 mb-6"
+               aria-label="Descargar Informe de Resultados">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Descargar Informe (informe_resultados.pdf)
+            </a>
+            <iframe src="./assets/informe_resultados.pdf"
+                    class="w-full h-screen border border-gray-300 rounded-lg shadow-inner"
+                    aria-label="Visor de PDF para el Informe de Resultados">
+                <p>Tu navegador no soporta iframes de PDF. Puedes <a href="./assets/informe_resultados.pdf">descargar el PDF aquí</a>.</p>
+            </iframe>
+        </section>
+
+        <!-- 3. Resumen Ejecutivo (PDF Embebido < 5MB) -->
+        <section id="resumen" class="bg-white p-8 rounded-lg shadow-lg mb-12 min-h-screen">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">3. Resumen Ejecutivo (PDF)</h2>
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-md" role="alert">
+                <p class="font-bold">Archivo Pequeño</p>
+                <p>Este archivo (<code>resumen_ejecutivo_arcor.pdf</code>) se detectó como &lt; 5MB y se ha incrustado usando Data URI Base64.</p>
+            </div>
+            <!--
+                TODO: Reemplazar el 'href' y el 'src' del iframe con el string Base64 de 'presentacion/resumen_ejecutivo_arcor.pdf'
+                Este es un marcador de posición (placeholder) de un PDF mínimo.
+            -->
+            <a href="data:application/pdf;base64,JVBERi0xLjAKMSAwIG9iago8PC9QYWdlcyAyIDAgUj4+CmVuZG9iagoyIDAgb2JqCjw8L1R5cGUvUGFnZXMvQ291bnQgMS9LaWRzWzMgMCBSXT4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUvUGFnZS9NZWRpYUJveFswIDAgNjEyIDc5Ml0vUGFyZW50IDIgMCBSL0NvbnRlbnRzIDQgMCBSPj4KZW5kb2JqCjQgMCBvYmoKPDwvTGVuZ3RoIDQxPj5zdHJlYW0KQlQgL0YxIDI0IFRmIDEwMCA3MDAgVGQgKEhvbGEpVGogRVQKZW5kc3RyZWFtCmVuZG9iagp0cmFpbGVyCjw8L1RootTEgMCBSPj4KJSVFT0Y="
+               download="resumen_ejecutivo_arcor.pdf"
+               class="inline-flex items-center bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow hover:bg-blue-700 transition duration-300 mb-6"
+               aria-label="Descargar Resumen Ejecutivo">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Descargar Resumen (resumen_ejecutivo_arcor.pdf)
+            </a>
+            <iframe src="data:application/pdf;base64,JVBERi0xLjAKMSAwIG9iago8PC9QYWdlcyAyIDAgUj4+CmVuZG9iagoyIDAgb2JqCjw8L1R5cGUvUGFnZXMvQ291bnQgMS9LaWRzWzMgMCBSXT4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUvUGFnZS9NZWRpYUJveFswIDAgNjEyIDc5Ml0vUGFyZW50IDIgMCBSL0NvbnRlbnRzIDQgMCBSPj4KZW5kb2JqCjQgMCBvYmoKPDwvTGVuZ3RoIDQxPj5zdHJlYW0KQlQgL0YxIDI0IFRmIDEwMCA3MDAgVGQgKEhvbGEpVGogRVQKZW5kc3RyZWFtCmVuZG9iagp0cmFpbGVyCjw8L1RootTEgMCBSPj4KJSVFT0Y="
+                    class="w-full h-screen border border-gray-300 rounded-lg shadow-inner"
+                    aria-label="Visor de PDF para el Resumen Ejecutivo">
+                <p>Tu navegador no soporta iframes de PDF. Puedes <a href="data:...">descargar el PDF aquí</a>.</p>
+            </iframe>
+        </section>
+
+        <!-- 4. Presentación (PPTX Enlazado >= 5MB) -->
+        <section id="presentacion" class="bg-white p-8 rounded-lg shadow-lg mb-12 min-h-[50vh]">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">4. Presentación (PPTX)</h2>
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6 rounded-md" role="alert">
+                <p class="font-bold">Archivo Grande</p>
+                <p>Este archivo (<code>presentacion_powerpoint.pptx</code>) se detectó como &gt; 5MB. Se ofrece solo para descarga desde <code>./assets/</code>.</p>
+            </div>
+            <div class="text-center p-10 border-2 border-dashed border-gray-300 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <p class="mt-4 text-lg text-gray-600">La presentación de PowerPoint no se puede previsualizar aquí.</p>
+                <a href="./assets/presentacion_powerpoint.pptx"
+                   download="presentacion_powerpoint.pptx"
+                   class="mt-6 inline-flex items-center bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow hover:bg-green-700 transition duration-300 text-lg"
+                   aria-label="Descargar Presentación PowerPoint">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Descargar Presentación (presentacion_powerpoint.pptx)
+                </a>
+            </div>
+        </section>
+
+        <!-- 5. Insights (Markdown Embebido) -->
+        <section id="insights" class="bg-white p-8 rounded-lg shadow-lg mb-12 min-h-screen">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">5. Insights y Recomendaciones</h2>
+            <p class="text-gray-600 mb-6">Contenido del archivo <code>resultados/insights_recomendaciones.md</code> renderizado con <code>marked.js</code>.</p>
+            
+            <!-- Contenedor para el Markdown renderizado -->
+            <article id="markdown-content" class="prose max-w-none"></article>
+        
+        </section>
+
+        <!-- 6. Visualizaciones (Chart.js Embebido) -->
+        <section id="visualizaciones" class="bg-white p-8 rounded-lg shadow-lg mb-12 min-h-screen">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">6. Visualizaciones Interactivas (Ejemplo)</h2>
+            <p class="text-gray-600 mb-6">Ejemplo de gráfica interactiva usando <code>Chart.js</code> con datos de muestra. (Esto podría poblarse desde un CSV/JSON en el repo).</p>
+            <div class.="w-full h-auto p-4 border rounded-lg shadow-inner bg-gray-50">
+                <canvas id="myChart" style="max-height: 500px;"></canvas>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 p-8 mt-16">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>&copy; 2025 - Proyecto de Análisis de Marketing (dsd228).</p>
+            <p>Página generada automáticamente. Los archivos grandes (>= 5MB) se enlazan desde <code>./assets/</code>.</p>
+        </div>
+    </footer>
+
+    <!-- Script Embebido (Inicialización) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- CDN Fallbacks ---
+            if (!window.marked) {
+                console.error('Marked.js no se cargó desde la CDN.');
+                const mdContainer = document.getElementById('markdown-content');
+                if(mdContainer) mdContainer.innerHTML = '<p class="text-red-500 font-bold">Error: No se pudo cargar el renderizador de Markdown (marked.js) desde la CDN.</p>';
+            }
+            
+            if (!window.Chart) {
+                console.error('Chart.js no se cargó desde la CDN.');
+                const chartContainer = document.getElementById('myChart');
+                if(chartContainer) chartContainer.parentElement.innerHTML = '<p class="text-red-500 font-bold">Error: No se pudo cargar la librería de gráficos (Chart.js) desde la CDN.</p>';
+            }
+
+            // --- 1. Inicializar Marked.js (Renderizar Markdown) ---
+            try {
+                // TODO: Reemplazar este string con el contenido real de 'resultados/insights_recomendaciones.md'
+                const markdownString = `
+# Insights Clave
+
+Tras el análisis de las campañas de marketing de Arcor en el Q3, hemos identificado varios patrones significativos.
+
+- **Canal de Mayor Rendimiento:** La publicidad en redes sociales (Meta) superó al Email Marketing en un 35% en términos de CTR.
+- **Producto Estrella:** La línea de chocolates "Cofler" mostró el mayor ROAS, especialmente en la región Cuyo.
+- **Oportunidad:** El público de 18-25 años está sub-penetrado en campañas de display.
+
+## Recomendaciones Estratégicas
+
+Basado en los insights, recomendamos las siguientes acciones:
+
+1.  **Re-asignación de Presupuesto:** Desplazar un 15% del presupuesto de Email Marketing hacia anuncios de video en TikTok e Instagram Reels, enfocados en el público de 18-25.
+2.  **Expansión de Campaña "Cofler":** Replicar la estrategia de Cuyo en la región NEA, ajustando la creatividad a los modismos locales.
+3.  **Pruebas A/B:** Iniciar pruebas A/B en los asuntos (subject lines) de Email Marketing para mejorar la tasa de apertura, que actualmente está por debajo del promedio de la industria.
+
+### Tabla de Performance de Canales (Q3)
+
+| Canal | Inversión (USD) | Impresiones | CTR (%) | ROAS |
+| :--- | ---: | ---: | ---: | ---: |
+| Meta Ads | 50,000 | 2,500,000 | 2.1 | 4.5 |
+| Google Ads | 35,000 | 1,200,000 | 1.8 | 3.9 |
+| Email Mkt | 10,000 | 500,000 | 1.2 | 5.1 |
+| TikTok | 5,000 | 1,000,000 | 0.9 | 2.0 |
+
+\`\`\`javascript
+// Ejemplo de código para seguimiento
+function trackConversion(productId) {
+    console.log('Producto ' + productId + ' agregado al carrito.');
+    // ... enviar evento a GA4
+}
+\`\`\`
+`;
+                
+                const mdContainer = document.getElementById('markdown-content');
+                if (mdContainer && window.marked) {
+                    mdContainer.innerHTML = marked.parse(markdownString);
+                } else if (!mdContainer) {
+                    console.error('No se encontró el contenedor #markdown-content');
+                }
+
+            } catch (e) {
+                console.error('Error al renderizar Markdown:', e);
+                const mdContainer = document.getElementById('markdown-content');
+                if(mdContainer) mdContainer.innerHTML = '<p class="text-red-500 font-bold">Error al procesar el contenido Markdown.</p>';
+            }
+
+            // --- 2. Inicializar Chart.js (Gráfica de Ejemplo) ---
+            try {
+                const ctx = document.getElementById('myChart');
+                if (ctx && window.Chart) {
+                    const myChart = new Chart(ctx.getContext('2d'), {
+                        type: 'bar',
+                        data: {
+                            labels: ['Meta Ads', 'Google Ads', 'Email Mkt', 'TikTok', 'Display'],
+                            datasets: [{
+                                label: 'ROAS (Retorno de Inversión Publicitaria)',
+                                data: [4.5, 3.9, 5.1, 2.0, 1.5],
+                                backgroundColor: [
+                                    'rgba(59, 130, 246, 0.7)',  // blue-500
+                                    'rgba(239, 68, 68, 0.7)',   // red-500
+                                    'rgba(16, 185, 129, 0.7)',  // green-500
+                                    'rgba(34, 34, 34, 0.7)',    // gray-900
+                                    'rgba(245, 158, 11, 0.7)'   // yellow-500
+                                ],
+                                borderColor: [
+                                    'rgba(59, 130, 246, 1)',
+                                    'rgba(239, 68, 68, 1)',
+                                    'rgba(16, 185, 129, 1)',
+                                    'rgba(34, 34, 34, 1)',
+                                    'rgba(245, 158, 11, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'ROAS por Canal de Marketing (Q3)',
+                                    font: {
+                                        size: 18
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'ROAS (e.g., 4.5 = $4.5 por $1 invertido)'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                } else if (!ctx) {
+                     console.error('No se encontró el canvas #myChart');
+                }
+            } catch (e) {
+                console.error('Error al crear la gráfica:', e);
+                const chartContainer = document.getElementById('myChart');
+                if(chartContainer) chartContainer.parentElement.innerHTML = '<p class="text-red-500 font-bold">Error al renderizar la gráfica.</p>';
+            }
+
+        });
+    </script>
+
+</body>
+</html>

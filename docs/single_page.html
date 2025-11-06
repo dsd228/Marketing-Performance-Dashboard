@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Performance Dashboard - Arcor</title>
+    
+    <!-- FavIcon Embebido (Simple SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+    
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Estilos CSS Embebidos -->
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        h2 {
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .download-btn {
+            margin-top: 15px;
+        }
+        .img-dashboard {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,.1);
+            transition: transform 0.2s;
+        }
+        .img-dashboard:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Estilos para Markdown Renderizado */
+        #markdown-content-display {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 25px;
+            min-height: 100px;
+        }
+        #markdown-content-display h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        #markdown-content-display table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        #markdown-content-display th, 
+        #markdown-content-display td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        #markdown-content-display th {
+            background-color: #f8f9fa;
+        }
+        #markdown-content-display code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        #markdown-content-display pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar">
+
+    <!-- Navegación Superior (TOC) -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">📊 Dashboard Arcor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#visual">Resumen Visual</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#informe">Informe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resumen">Resumen Ejecutivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#presentacion">Presentación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#insights">Insights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#visualizaciones">Gráfico</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="container">
+
+        <!-- NOTA: Esta página está configurada para GitHub Pages. -->
+        <!-- Asume que este archivo (single_page.html) está en la carpeta 'docs/' -->
+        <!-- Y que los archivos de datos están en carpetas 'resultados/' y 'presentacion/' en la raíz del repositorio. -->
+        <!-- Por eso se usan rutas relativas como '../resultados/...' -->
+
+        <!-- 1. Resumen Visual (Cargado desde Repo) -->
+        <section id="visual">
+            <h2>1. Resumen Visual</h2>
+            <div class="alert alert-success" role="alert">
+                <strong>NOTA:</strong> Esta imagen se carga desde <code>../resultados/resumen_visual_dashboard.png</code>.
+            </div>
+            
+            <a href="../resultados/resumen_visual_dashboard.png" target="_blank" title="Haz clic para ver la imagen completa">
+                <img src="../resultados/resumen_visual_dashboard.png" 
+                     class="img-dashboard" 
+                     alt="Resumen Visual del Dashboard de Marketing"
+                     onerror="this.src='https://placehold.co/1200x800/e9ecef/495057?text=Error%3A%20No%20se%20encontr%C3%B3%20la%20imagen%20en%20/resultados/'; this.alt='Error: Imagen no encontrada.'">
+            </a>
+            
+            <a href="../resultados/resumen_visual_dashboard.png" 
+               class="btn btn-primary download-btn" 
+               download="resumen_visual_dashboard.png"
+               aria-label="Descargar Resumen Visual PNG">
+               Descargar Imagen (PNG)
+            </a>
+        </section>
+
+        <!-- 2. Informe de Resultados (Cargado desde Repo) -->
+        <section id="informe">
+            <h2>2. Informe de Resultados</h2>
+             <div class="alert alert-success" role="alert">
+                <strong>NOTA:</strong> Este PDF se carga desde <code>../resultados/informe_resultados.pdf</code>.
+            </div>
+            
+            <iframe src="../resultados/informe_resultados.pdf" 
+                    class="pdf-viewer" 
+                    title="Visor de PDF: Informe de Resultados">
+                <p>Tu navegador no soporta PDFs embebidos. Puedes <a href="../resultados/informe_resultados.pdf" download="informe_resultados.pdf">descargar el PDF</a> en su lugar.</p>
+            </iframe>
+            
+            <a href="../resultados/informe_resultados.pdf" 
+               class="btn btn-primary download-btn" 
+               download="informe_resultados.pdf"
+               aria-label="Descargar Informe de Resultados PDF">
+               Descargar Informe (PDF)
+            </a>
+        </section>
+
+        <!-- 3. Resumen Ejecutivo (Cargado desde Repo) -->
+        <section id="resumen">
+            <h2>3. Resumen Ejecutivo</h2>
+            <div class="alert alert-success" role="alert">
+                <strong>NOTA:</strong> Este PDF se carga desde <code>../presentacion/resumen_ejecutivo_arcor.pdf</code>.
+            </div>
+
+            <iframe src="../presentacion/resumen_ejecutivo_arcor.pdf" 
+                    class="pdf-viewer" 
+                    title="Visor de PDF: Resumen Ejecutivo">
+                <p>Tu navegador no soporta PDFs embebidos. Puedes <a href="../presentacion/resumen_ejecutivo_arcor.pdf" download="resumen_ejecutivo_arcor.pdf">descargar el PDF</a> en su lugar.</p>
+            </iframe>
+
+            <a href="../presentacion/resumen_ejecutivo_arcor.pdf" 
+               class="btn btn-primary download-btn" 
+               download="resumen_ejecutivo_arcor.pdf"
+               aria-label="Descargar Resumen Ejecutivo PDF">
+               Descargar Resumen (PDF)
+            </a>
+        </section>
+
+        <!-- 4. Presentación (Enlace a Repo) -->
+        <section id="presentacion">
+            <h2>4. Presentación (PowerPoint)</h2>
+            <div class="alert alert-success" role="alert">
+                <strong>NOTA:</strong> Este enlace apunta a <code>../presentacion/presentacion_powerpoint.pptx</code>.
+            </div>
+            
+            <p>La presentación de PowerPoint está disponible para descarga directa desde el repositorio.</p>
+            
+            <a href="../presentacion/presentacion_powerpoint.pptx" 
+               class="btn btn-primary download-btn" 
+               download="presentacion_powerpoint.pptx"
+               aria-label="Descargar Presentación PPTX">
+               Descargar Presentación (PPTX)
+            </a>
+        </section>
+
+        <!-- 5. Insights y Recomendaciones (Markdown Cargado desde Repo) -->
+        <section id="insights">
+            <h2>5. Insights y Recomendaciones</h2>
+            <div class="alert alert-success" role="alert">
+                <strong>NOTA:</strong> El contenido de esta sección se carga dinámicamente desde <code>../resultados/insights_recomendaciones.md</code>.
+            </div>
+            
+            <div id="markdown-content-display">
+                <p>Cargando contenido de Markdown...</p>
+            </div>
+        </section>
+
+        <!-- 6. Visualizaciones Interactivas (Chart.js) -->
+        <section id="visualizaciones">
+            <h2>6. Visualización Interactiva (Ejemplo)</h2>
+            <div class="alert alert-info" role="alert">
+                <strong>DEMOSTRACIÓN:</strong> Este es un gráfico de ejemplo. Puedes editar el script de abajo (variable <code>exampleData</code>) para poblarlo con datos reales.
+            </div>
+            
+            <canvas id="myPerformanceChart"></canvas>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-4 bg-light mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 - Dashboard de Performance. Generado para GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <!-- CDNs de JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" xintegrity="sha384-BsoN/bXv/iN/XN+jMAXg23A/YISYO1CILiYNo+gW/y1S/J4t/6jHHD/yTjT5i/bC" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/lib/marked.umd.min.js" xintegrity="sha384-GfP9Gk/vK29wi1FjYJMMP5/y2p6eQ8L5vF8S/s/s7pRaACh1E/3/S/vLwP/3Z/5L" crossorigin="anonymous"></script>
+
+    <!-- Script Principal Embebido -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // --- 5. Lógica de Renderizado de Markdown (Cargado por Fetch) ---
+            const mdPath = '../resultados/insights_recomendaciones.md';
+            const displayElement = document.getElementById("markdown-content-display");
+
+            fetch(mdPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status} - No se encontró ${mdPath}`);
+                    }
+                    return response.text();
+                })
+                .then(markdownContent => {
+                    if (displayElement && window.marked) {
+                        displayElement.innerHTML = window.marked.parse(markdownContent);
+                    } else {
+                        throw new Error("Marked.js o el elemento 'markdown-content-display' no están disponibles.");
+                    }
+                })
+                .catch(e => {
+                    console.error("Error al cargar Markdown:", e);
+                    if(displayElement) {
+                        displayElement.innerHTML = `<div class="alert alert-danger"><strong>Error al cargar:</strong> No se pudo encontrar el archivo <code>${mdPath}</code>. Asegúrate de que el archivo existe en la carpeta 'resultados' de tu repositorio.</div>`;
+                    }
+                });
+
+            // --- 6. Lógica del Gráfico (Chart.js) ---
+            try {
+                // Datos de ejemplo. Reemplaza esto con los datos de tu CSV.
+                const exampleData = {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    datasets: [
+                        {
+                            label: 'Inversión (en miles USD)',
+                            data: [50, 65, 70, 90],
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderWidth: 2,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Conversiones',
+                            data: [120, 150, 180, 210],
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderWidth: 2,
+                            tension: 0.1
+                        }
+                    ]
+                };
+
+                const ctx = document.getElementById('myPerformanceChart');
+                if (ctx && window.Chart) {
+                    new Chart(ctx, {
+                        type: 'line', // Tipo de gráfico (line, bar, pie, etc.)
+                        data: exampleData,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Rendimiento de Marketing (Ejemplo)'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    console.error("Chart.js no encontrado o canvas 'myPerformanceChart' no existe.");
+                }
+            } catch (e) {
+                console.error("Error al renderizar el gráfico:", e);
+                const chartElement = document.getElementById('myPerformanceChart');
+                if(chartElement) chartElement.getContext('2d').fillText("Error al cargar el gráfico.", 10, 50);
+            }
+
+            // Fallback por si los CDNs fallan
+            if (!window.bootstrap) console.warn("Bootstrap JS no se cargó.");
+            if (!window.Chart) console.warn("Chart.js no se cargó.");
+            if (!window.marked) console.warn("Marked.js no se cargó.");
+
+        });
+    </script>
+</body>
+</html>

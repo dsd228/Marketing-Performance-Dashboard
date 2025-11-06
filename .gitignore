@@ -1,1 +1,19 @@
+# Entornos y dependencias
+venv/
+.env
+__pycache__/
+*.pyc
 
+# Jupyter
+.ipynb_checkpoints/
+
+# Datos y entregables binarios
+*.xlsx
+*.csv
+*.png
+*.pdf
+*.pptx
+
+# Sistema
+.DS_Store
+Thumbs.db

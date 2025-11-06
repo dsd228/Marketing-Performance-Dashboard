@@ -1,0 +1,6 @@
+[IMAGEN / placeholder] Resumen visual del dashboard:
+
+KPI cards: Gasto, Ingresos, Conversiones, ROAS
+Gráfica: ROAS por campaña
+Gráfica: Visitas por canal
+Nota: Exportar la imagen desde Jupyter/Streamlit con plt.savefig o st.image.

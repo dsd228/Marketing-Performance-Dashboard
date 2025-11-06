@@ -55,6 +55,7 @@
             border: 1px solid #eee;
             border-radius: 8px;
             padding: 25px;
+            min-height: 100px;
         }
         #markdown-content-display h3 {
             font-size: 1.5rem;
@@ -127,21 +128,26 @@
     <!-- Contenido Principal -->
     <main class="container">
 
-        <!-- 1. Resumen Visual (PNG Embebido) -->
+        <!-- NOTA: Esta página está configurada para GitHub Pages. -->
+        <!-- Asume que este archivo (single_page.html) está en la carpeta 'docs/' -->
+        <!-- Y que los archivos de datos están en carpetas 'resultados/' y 'presentacion/' en la raíz del repositorio. -->
+        <!-- Por eso se usan rutas relativas como '../resultados/...' -->
+
+        <!-- 1. Resumen Visual (Cargado desde Repo) -->
         <section id="visual">
             <h2>1. Resumen Visual</h2>
-            <div class="alert alert-info" role="alert">
-                <strong>ACCIÓN REQUERIDA:</strong> Reemplaza el texto <code>[AQUÍ_VA_EL_BASE64_DEL_PNG_RESUMEN_VISUAL]</code> en el <code>src</code> y <code>href</code> de abajo con el contenido Base64 de tu archivo <code>resumen_visual_dashboard.png</code>.
+            <div class="alert alert-success" role="alert">
+                <strong>NOTA:</strong> Esta imagen se carga desde <code>../resultados/resumen_visual_dashboard.png</code>.
             </div>
             
-            <a href="data:image/png;base64,[AQUÍ_VA_EL_BASE64_DEL_PNG_RESUMEN_VISUAL]" target="_blank" title="Haz clic para ver la imagen completa">
-                <img src="data:image/png;base64,[AQUÍ_VA_EL_BASE64_DEL_PNG_RESUMEN_VISUAL]" 
+            <a href="../resultados/resumen_visual_dashboard.png" target="_blank" title="Haz clic para ver la imagen completa">
+                <img src="../resultados/resumen_visual_dashboard.png" 
                      class="img-dashboard" 
                      alt="Resumen Visual del Dashboard de Marketing"
-                     onerror="this.src='https://placehold.co/1200x800/e9ecef/495057?text=Error%3A%20Falta%20Base64%20de%20Imagen'">
+                     onerror="this.src='https://placehold.co/1200x800/e9ecef/495057?text=Error%3A%20No%20se%20encontr%C3%B3%20la%20imagen%20en%20/resultados/'; this.alt='Error: Imagen no encontrada.'">
             </a>
             
-            <a href="data:image/png;base64,[AQUÍ_VA_EL_BASE64_DEL_PNG_RESUMEN_VISUAL]" 
+            <a href="../resultados/resumen_visual_dashboard.png" 
                class="btn btn-primary download-btn" 
                download="resumen_visual_dashboard.png"
                aria-label="Descargar Resumen Visual PNG">
@@ -149,20 +155,20 @@
             </a>
         </section>
 
-        <!-- 2. Informe de Resultados (PDF Embebido) -->
+        <!-- 2. Informe de Resultados (Cargado desde Repo) -->
         <section id="informe">
             <h2>2. Informe de Resultados</h2>
-            <div class="alert alert-info" role="alert">
-                <strong>ACCIÓN REQUERIDA:</strong> Reemplaza el texto <code>[AQUÍ_VA_EL_BASE64_DEL_PDF_INFORME]</code> en el <code>src</code> y <code>href</code> de abajo con el contenido Base64 de tu archivo <code>informe_resultados.pdf</code>.
+             <div class="alert alert-success" role="alert">
+                <strong>NOTA:</strong> Este PDF se carga desde <code>../resultados/informe_resultados.pdf</code>.
             </div>
             
-            <iframe src="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_INFORME]" 
+            <iframe src="../resultados/informe_resultados.pdf" 
                     class="pdf-viewer" 
                     title="Visor de PDF: Informe de Resultados">
-                <p>Tu navegador no soporta PDFs embebidos. Puedes <a href="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_INFORME]" download="informe_resultados.pdf">descargar el PDF</a> en su lugar.</p>
+                <p>Tu navegador no soporta PDFs embebidos. Puedes <a href="../resultados/informe_resultados.pdf" download="informe_resultados.pdf">descargar el PDF</a> en su lugar.</p>
             </iframe>
             
-            <a href="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_INFORME]" 
+            <a href="../resultados/informe_resultados.pdf" 
                class="btn btn-primary download-btn" 
                download="informe_resultados.pdf"
                aria-label="Descargar Informe de Resultados PDF">
@@ -170,20 +176,20 @@
             </a>
         </section>
 
-        <!-- 3. Resumen Ejecutivo (PDF Embebido) -->
+        <!-- 3. Resumen Ejecutivo (Cargado desde Repo) -->
         <section id="resumen">
             <h2>3. Resumen Ejecutivo</h2>
-            <div class="alert alert-info" role="alert">
-                <strong>ACCIÓN REQUERIDA:</strong> Reemplaza el texto <code>[AQUÍ_VA_EL_BASE64_DEL_PDF_RESUMEN]</code> en el <code>src</code> y <code>href</code> de abajo con el contenido Base64 de tu archivo <code>resumen_ejecutivo_arcor.pdf</code>.
+            <div class="alert alert-success" role="alert">
+                <strong>NOTA:</strong> Este PDF se carga desde <code>../presentacion/resumen_ejecutivo_arcor.pdf</code>.
             </div>
 
-            <iframe src="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_RESUMEN]" 
+            <iframe src="../presentacion/resumen_ejecutivo_arcor.pdf" 
                     class="pdf-viewer" 
                     title="Visor de PDF: Resumen Ejecutivo">
-                <p>Tu navegador no soporta PDFs embebidos. Puedes <a href="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_RESUMEN]" download="resumen_ejecutivo_arcor.pdf">descargar el PDF</a> en su lugar.</p>
+                <p>Tu navegador no soporta PDFs embebidos. Puedes <a href="../presentacion/resumen_ejecutivo_arcor.pdf" download="resumen_ejecutivo_arcor.pdf">descargar el PDF</a> en su lugar.</p>
             </iframe>
 
-            <a href="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_RESUMEN]" 
+            <a href="../presentacion/resumen_ejecutivo_arcor.pdf" 
                class="btn btn-primary download-btn" 
                download="resumen_ejecutivo_arcor.pdf"
                aria-label="Descargar Resumen Ejecutivo PDF">
@@ -191,18 +197,16 @@
             </a>
         </section>
 
-        <!-- 4. Presentación (Enlace a Archivo Grande) -->
+        <!-- 4. Presentación (Enlace a Repo) -->
         <section id="presentacion">
             <h2>4. Presentación (PowerPoint)</h2>
             <div class="alert alert-success" role="alert">
-                <strong>LÓGICA APLICADA:</strong> Este archivo (<code>presentacion_powerpoint.pptx</code>) se ha simulado como "archivo grande" (>= 5MB).
-                <br>
-                <strong>ACCIÓN REQUERIDA:</strong> Asegúrate de crear la carpeta <code>docs/assets/</code> y copiar <code>presentacion_powerpoint.pptx</code> dentro de ella. El enlace de descarga de abajo funcionará automáticamente.
+                <strong>NOTA:</strong> Este enlace apunta a <code>../presentacion/presentacion_powerpoint.pptx</code>.
             </div>
             
-            <p>La presentación de PowerPoint es un archivo grande y está disponible para descarga directa.</p>
+            <p>La presentación de PowerPoint está disponible para descarga directa desde el repositorio.</p>
             
-            <a href="./assets/presentacion_powerpoint.pptx" 
+            <a href="../presentacion/presentacion_powerpoint.pptx" 
                class="btn btn-primary download-btn" 
                download="presentacion_powerpoint.pptx"
                aria-label="Descargar Presentación PPTX">
@@ -210,25 +214,23 @@
             </a>
         </section>
 
-        <!-- 5. Insights y Recomendaciones (Markdown Renderizado) -->
+        <!-- 5. Insights y Recomendaciones (Markdown Cargado desde Repo) -->
         <section id="insights">
             <h2>5. Insights y Recomendaciones</h2>
-            <div class="alert alert-info" role="alert">
-                <strong>ACCIÓN REQUERIDA:</strong> Edita la variable <code>markdownContent</code> en el script al final de este archivo para pegar el contenido de tu archivo <code>insights_recomendaciones.md</code>.
+            <div class="alert alert-success" role="alert">
+                <strong>NOTA:</strong> El contenido de esta sección se carga dinámicamente desde <code>../resultados/insights_recomendaciones.md</code>.
             </div>
             
             <div id="markdown-content-display">
-                <!-- El contenido se renderizará aquí por marked.js -->
+                <p>Cargando contenido de Markdown...</p>
             </div>
         </section>
 
         <!-- 6. Visualizaciones Interactivas (Chart.js) -->
         <section id="visualizaciones">
             <h2>6. Visualización Interactiva (Ejemplo)</h2>
-            <div class="alert alert-success" role="alert">
-                <strong>DEMOSTRACIÓN:</strong> Se incluye un gráfico de Chart.js con datos de ejemplo.
-                <br>
-                <strong>ACCIÓN REQUERIDA:</strong> Si tienes un CSV, puedes editar el script al final de este archivo para reemplazar <code>exampleData</code> con los datos de tu CSV.
+            <div class="alert alert-info" role="alert">
+                <strong>DEMOSTRACIÓN:</strong> Este es un gráfico de ejemplo. Puedes editar el script de abajo (variable <code>exampleData</code>) para poblarlo con datos reales.
             </div>
             
             <canvas id="myPerformanceChart"></canvas>
@@ -238,7 +240,7 @@
 
     <footer class="text-center p-4 bg-light mt-5">
         <div class="container">
-            <p class="mb-0">&copy; 2025 - Dashboard de Performance. Generado como archivo HTML autosuficiente.</p>
+            <p class="mb-0">&copy; 2025 - Dashboard de Performance. Generado para GitHub Pages.</p>
         </div>
     </footer>
 
@@ -251,52 +253,30 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             
-            // --- 5. Lógica de Renderizado de Markdown ---
-            try {
-                // Pega el contenido de 'insights_recomendaciones.md' aquí.
-                const markdownContent = `
-# Insights Clave y Recomendaciones
+            // --- 5. Lógica de Renderizado de Markdown (Cargado por Fetch) ---
+            const mdPath = '../resultados/insights_recomendaciones.md';
+            const displayElement = document.getElementById("markdown-content-display");
 
-Este es un *placeholder* para tu contenido de Markdown.
-
-### Insight 1: Crecimiento en Canales Digitales
-El análisis muestra un **aumento del 35%** en la conversión a través de campañas de email marketing en el Q3.
-
-* **Recomendación:** Duplicar la inversión en la segmentación de audiencias para email.
-
-### Insight 2: Desempeño de Campaña
-La campaña "Verano Arcor" superó los KPIs en un 15%.
-
-| Campaña | ROI Esperado | ROI Real | Diferencia |
-| :--- | :--- | :--- | :--- |
-| Verano Arcor | 1.5 | 1.72 | +15% |
-| Pascua | 1.8 | 1.6 | -11% |
-
-* **Recomendación:** Analizar los componentes de la campaña "Pascua" para identificar áreas de mejora.
-
-### Código de Ejemplo de Tracking
-\`\`\`javascript
-// Ejemplo de cómo se mide la conversión
-function trackConversion(campaignId) {
-    console.log('Track', campaignId);
-    // analytics.track('Conversion', { campaign: campaignId });
-}
-\`\`\`
-`;
-                
-                const displayElement = document.getElementById("markdown-content-display");
-                if (displayElement && window.marked) {
-                    // Usar la API actualizada de marked (v5+)
-                    displayElement.innerHTML = window.marked.parse(markdownContent);
-                } else {
-                    displayElement.innerHTML = "<p>Error al cargar el renderizador de Markdown. Asegúrate de que marked.js está disponible.</p>";
-                    console.error("Marked.js no encontrado o elemento 'markdown-content-display' no existe.");
-                }
-            } catch (e) {
-                console.error("Error al renderizar Markdown:", e);
-                const displayElement = document.getElementById("markdown-content-display");
-                if(displayElement) displayElement.innerHTML = "<p>Ocurrió un error al procesar el Markdown.</p>";
-            }
+            fetch(mdPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status} - No se encontró ${mdPath}`);
+                    }
+                    return response.text();
+                })
+                .then(markdownContent => {
+                    if (displayElement && window.marked) {
+                        displayElement.innerHTML = window.marked.parse(markdownContent);
+                    } else {
+                        throw new Error("Marked.js o el elemento 'markdown-content-display' no están disponibles.");
+                    }
+                })
+                .catch(e => {
+                    console.error("Error al cargar Markdown:", e);
+                    if(displayElement) {
+                        displayElement.innerHTML = `<div class="alert alert-danger"><strong>Error al cargar:</strong> No se pudo encontrar el archivo <code>${mdPath}</code>. Asegúrate de que el archivo existe en la carpeta 'resultados' de tu repositorio.</div>`;
+                    }
+                });
 
             // --- 6. Lógica del Gráfico (Chart.js) ---
             try {
@@ -355,7 +335,7 @@ function trackConversion(campaignId) {
                 if(chartElement) chartElement.getContext('2d').fillText("Error al cargar el gráfico.", 10, 50);
             }
 
-            // Fallback por si los CDNs fallan (aunque no debería ser necesario para este caso)
+            // Fallback por si los CDNs fallan
             if (!window.bootstrap) console.warn("Bootstrap JS no se cargó.");
             if (!window.Chart) console.warn("Chart.js no se cargó.");
             if (!window.marked) console.warn("Marked.js no se cargó.");

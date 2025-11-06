@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marketing Performance — Dashboard Web</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{--bg:#f6f8fb;--card:#fff;--accent:#0b69ff}
+    body{background:var(--bg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;padding-bottom:40px}
+    .hero{background:linear-gradient(90deg,#0b69ff,#0057d9);color:#fff;padding:28px 0;margin-bottom:18px}
+    .container{max-width:1100px}
+    .card{border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.06)}
+    pre.md{white-space:pre-wrap}
+    .img-zoom{cursor:zoom-in}
+    footer{margin-top:28px;color:#6b7280}
+    .viewer-frame{width:100%;height:640px;border:0;border-radius:8px;background:#f3f4f6}
+    @media(max-width:700px){.viewer-frame{height:420px}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1 class="h3">Marketing Performance — Dashboard</h1>
+      <p class="mb-0">Entrega integrada: imagen, informes, presentación y recomendaciones en una sola página.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="mb-3">
+      <div class="d-flex gap-2">
+        <a class="btn btn-outline-light btn-sm" href="#visual">Visual</a>
+        <a class="btn btn-outline-light btn-sm" href="#informe">Informe (PDF)</a>
+        <a class="btn btn-outline-light btn-sm" href="#resumen">Resumen ejecutivo</a>
+        <a class="btn btn-outline-light btn-sm" href="#presentacion">Presentación</a>
+        <a class="btn btn-outline-light btn-sm" href="#insights">Insights</a>
+        <a class="btn btn-outline-light btn-sm" href="#charts">Visualizaciones</a>
+      </div>
+    </nav>
+
+    <section id="visual" class="mb-4 card p-3">
+      <h2 class="h5">Resumen visual</h2>
+      <p class="text-muted">Imagen generada automáticamente desde el script.</p>
+      <img id="mainImage" class="img-fluid img-zoom rounded" alt="Resumen visual del dashboard" src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/resumen_visual_dashboard.png">
+      <div class="mt-2">
+        <a id="imgOpen" class="btn btn-primary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/resumen_visual_dashboard.png" target="_blank" rel="noopener">Abrir imagen</a>
+        <a id="imgDownload" class="btn btn-outline-secondary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/resumen_visual_dashboard.png" download>Descargar</a>
+      </div>
+    </section>
+
+    <section id="informe" class="mb-4 card p-3">
+      <h2 class="h5">Informe de resultados</h2>
+      <p class="text-muted">PDF embebido (si tu navegador lo permite) o descarga directa.</p>
+      <iframe class="viewer-frame" src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/informe_resultados.pdf"></iframe>
+      <div class="mt-2">
+        <a class="btn btn-primary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/informe_resultados.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+        <a class="btn btn-outline-secondary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/informe_resultados.pdf" download>Descargar PDF</a>
+      </div>
+    </section>
+
+    <section id="resumen" class="mb-4 card p-3">
+      <h2 class="h5">Resumen ejecutivo</h2>
+      <iframe class="viewer-frame" src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/resumen_ejecutivo_arcor.pdf"></iframe>
+      <div class="mt-2">
+        <a class="btn btn-primary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/resumen_ejecutivo_arcor.pdf" target="_blank">Abrir PDF</a>
+        <a class="btn btn-outline-secondary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/resumen_ejecutivo_arcor.pdf" download>Descargar</a>
+      </div>
+    </section>
+
+    <section id="presentacion" class="mb-4 card p-3">
+      <h2 class="h5">Presentación (PPTX)</h2>
+      <p class="text-muted">Descarga la presentación en PPTX.</p>
+      <a class="btn btn-primary" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/presentacion_powerpoint.pptx" download>Descargar PPTX</a>
+    </section>
+
+    <section id="insights" class="mb-4 card p-3">
+      <h2 class="h5">Insights y recomendaciones</h2>
+      <div id="mdContent" class="mt-2"></div>
+      <div class="mt-2">
+        <a class="btn btn-outline-secondary btn-sm" id="rawMd" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/insights_recomendaciones.md" target="_blank">Ver raw MD</a>
+      </div>
+    </section>
+
+    <section id="charts" class="mb-4 card p-3">
+      <h2 class="h5">Visualizaciones interactivas</h2>
+      <p class="text-muted">Ejemplo: ROAS por campaña (datos de ejemplo).</p>
+      <canvas id="chart1" height="120"></canvas>
+    </section>
+
+    <footer class="mt-4 text-center">
+      <small>© 2025 dsd228 — Marketing Performance Dashboard</small>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Render markdown from the repo raw URL
+    async function loadMarkdown(){
+      try{
+        const res = await fetch('https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/insights_recomendaciones.md');
+        if(!res.ok){ document.getElementById('mdContent').innerText = 'No se pudo cargar insights_recomendaciones.md'; return; }
+        const text = await res.text();
+        document.getElementById('mdContent').innerHTML = marked.parse(text);
+      }catch(e){ document.getElementById('mdContent').innerText = 'Error cargando markdown: '+e.message }
+    }
+    loadMarkdown();
+
+    // Sample chart (replace with real data if available)
+    const ctx = document.getElementById('chart1').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Campaña A','Campaña B','Campaña C','Campaña D'],
+        datasets: [{label:'ROAS',data:[3.2,2.1,4.0,1.8],backgroundColor:['#0b69ff','#0b69ff','#0b69ff','#0b69ff']}]
+      },
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+    });
+
+    // Simple image zoom: open in new tab on click (can be replaced by lightbox)
+    document.getElementById('mainImage').addEventListener('click', function(){ window.open(this.src); });
+  </script>
+</body>
+</html>

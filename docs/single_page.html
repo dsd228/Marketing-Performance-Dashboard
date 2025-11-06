@@ -1,124 +1,366 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marketing Performance — Dashboard Web</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    :root{--bg:#f6f8fb;--card:#fff;--accent:#0b69ff}
-    body{background:var(--bg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;padding-bottom:40px}
-    .hero{background:linear-gradient(90deg,#0b69ff,#0057d9);color:#fff;padding:28px 0;margin-bottom:18px}
-    .container{max-width:1100px}
-    .card{border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.06)}
-    pre.md{white-space:pre-wrap}
-    .img-zoom{cursor:zoom-in}
-    footer{margin-top:28px;color:#6b7280}
-    .viewer-frame{width:100%;height:640px;border:0;border-radius:8px;background:#f3f4f6}
-    @media(max-width:700px){.viewer-frame{height:420px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Performance Dashboard - Arcor</title>
+    
+    <!-- FavIcon Embebido (Simple SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+    
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Estilos CSS Embebidos -->
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        h2 {
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .download-btn {
+            margin-top: 15px;
+        }
+        .img-dashboard {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,.1);
+            transition: transform 0.2s;
+        }
+        .img-dashboard:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Estilos para Markdown Renderizado */
+        #markdown-content-display {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 25px;
+        }
+        #markdown-content-display h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        #markdown-content-display table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        #markdown-content-display th, 
+        #markdown-content-display td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        #markdown-content-display th {
+            background-color: #f8f9fa;
+        }
+        #markdown-content-display code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        #markdown-content-display pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
 </head>
-<body>
-  <header class="hero">
-    <div class="container">
-      <h1 class="h3">Marketing Performance — Dashboard</h1>
-      <p class="mb-0">Entrega integrada: imagen, informes, presentación y recomendaciones en una sola página.</p>
-    </div>
-  </header>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar">
 
-  <main class="container">
-    <nav class="mb-3">
-      <div class="d-flex gap-2">
-        <a class="btn btn-outline-light btn-sm" href="#visual">Visual</a>
-        <a class="btn btn-outline-light btn-sm" href="#informe">Informe (PDF)</a>
-        <a class="btn btn-outline-light btn-sm" href="#resumen">Resumen ejecutivo</a>
-        <a class="btn btn-outline-light btn-sm" href="#presentacion">Presentación</a>
-        <a class="btn btn-outline-light btn-sm" href="#insights">Insights</a>
-        <a class="btn btn-outline-light btn-sm" href="#charts">Visualizaciones</a>
-      </div>
+    <!-- Navegación Superior (TOC) -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">📊 Dashboard Arcor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#visual">Resumen Visual</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#informe">Informe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resumen">Resumen Ejecutivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#presentacion">Presentación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#insights">Insights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#visualizaciones">Gráfico</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <section id="visual" class="mb-4 card p-3">
-      <h2 class="h5">Resumen visual</h2>
-      <p class="text-muted">Imagen generada automáticamente desde el script.</p>
-      <img id="mainImage" class="img-fluid img-zoom rounded" alt="Resumen visual del dashboard" src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/resumen_visual_dashboard.png">
-      <div class="mt-2">
-        <a id="imgOpen" class="btn btn-primary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/resumen_visual_dashboard.png" target="_blank" rel="noopener">Abrir imagen</a>
-        <a id="imgDownload" class="btn btn-outline-secondary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/resumen_visual_dashboard.png" download>Descargar</a>
-      </div>
-    </section>
+    <!-- Contenido Principal -->
+    <main class="container">
 
-    <section id="informe" class="mb-4 card p-3">
-      <h2 class="h5">Informe de resultados</h2>
-      <p class="text-muted">PDF embebido (si tu navegador lo permite) o descarga directa.</p>
-      <iframe class="viewer-frame" src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/informe_resultados.pdf"></iframe>
-      <div class="mt-2">
-        <a class="btn btn-primary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/informe_resultados.pdf" target="_blank" rel="noopener">Abrir PDF</a>
-        <a class="btn btn-outline-secondary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/informe_resultados.pdf" download>Descargar PDF</a>
-      </div>
-    </section>
+        <!-- 1. Resumen Visual (PNG Embebido) -->
+        <section id="visual">
+            <h2>1. Resumen Visual</h2>
+            <div class="alert alert-info" role="alert">
+                <strong>ACCIÓN REQUERIDA:</strong> Reemplaza el texto <code>[AQUÍ_VA_EL_BASE64_DEL_PNG_RESUMEN_VISUAL]</code> en el <code>src</code> y <code>href</code> de abajo con el contenido Base64 de tu archivo <code>resumen_visual_dashboard.png</code>.
+            </div>
+            
+            <a href="data:image/png;base64,[AQUÍ_VA_EL_BASE64_DEL_PNG_RESUMEN_VISUAL]" target="_blank" title="Haz clic para ver la imagen completa">
+                <img src="data:image/png;base64,[AQUÍ_VA_EL_BASE64_DEL_PNG_RESUMEN_VISUAL]" 
+                     class="img-dashboard" 
+                     alt="Resumen Visual del Dashboard de Marketing"
+                     onerror="this.src='https://placehold.co/1200x800/e9ecef/495057?text=Error%3A%20Falta%20Base64%20de%20Imagen'">
+            </a>
+            
+            <a href="data:image/png;base64,[AQUÍ_VA_EL_BASE64_DEL_PNG_RESUMEN_VISUAL]" 
+               class="btn btn-primary download-btn" 
+               download="resumen_visual_dashboard.png"
+               aria-label="Descargar Resumen Visual PNG">
+               Descargar Imagen (PNG)
+            </a>
+        </section>
 
-    <section id="resumen" class="mb-4 card p-3">
-      <h2 class="h5">Resumen ejecutivo</h2>
-      <iframe class="viewer-frame" src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/resumen_ejecutivo_arcor.pdf"></iframe>
-      <div class="mt-2">
-        <a class="btn btn-primary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/resumen_ejecutivo_arcor.pdf" target="_blank">Abrir PDF</a>
-        <a class="btn btn-outline-secondary btn-sm" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/resumen_ejecutivo_arcor.pdf" download>Descargar</a>
-      </div>
-    </section>
+        <!-- 2. Informe de Resultados (PDF Embebido) -->
+        <section id="informe">
+            <h2>2. Informe de Resultados</h2>
+            <div class="alert alert-info" role="alert">
+                <strong>ACCIÓN REQUERIDA:</strong> Reemplaza el texto <code>[AQUÍ_VA_EL_BASE64_DEL_PDF_INFORME]</code> en el <code>src</code> y <code>href</code> de abajo con el contenido Base64 de tu archivo <code>informe_resultados.pdf</code>.
+            </div>
+            
+            <iframe src="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_INFORME]" 
+                    class="pdf-viewer" 
+                    title="Visor de PDF: Informe de Resultados">
+                <p>Tu navegador no soporta PDFs embebidos. Puedes <a href="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_INFORME]" download="informe_resultados.pdf">descargar el PDF</a> en su lugar.</p>
+            </iframe>
+            
+            <a href="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_INFORME]" 
+               class="btn btn-primary download-btn" 
+               download="informe_resultados.pdf"
+               aria-label="Descargar Informe de Resultados PDF">
+               Descargar Informe (PDF)
+            </a>
+        </section>
 
-    <section id="presentacion" class="mb-4 card p-3">
-      <h2 class="h5">Presentación (PPTX)</h2>
-      <p class="text-muted">Descarga la presentación en PPTX.</p>
-      <a class="btn btn-primary" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/presentacion_powerpoint.pptx" download>Descargar PPTX</a>
-    </section>
+        <!-- 3. Resumen Ejecutivo (PDF Embebido) -->
+        <section id="resumen">
+            <h2>3. Resumen Ejecutivo</h2>
+            <div class="alert alert-info" role="alert">
+                <strong>ACCIÓN REQUERIDA:</strong> Reemplaza el texto <code>[AQUÍ_VA_EL_BASE64_DEL_PDF_RESUMEN]</code> en el <code>src</code> y <code>href</code> de abajo con el contenido Base64 de tu archivo <code>resumen_ejecutivo_arcor.pdf</code>.
+            </div>
 
-    <section id="insights" class="mb-4 card p-3">
-      <h2 class="h5">Insights y recomendaciones</h2>
-      <div id="mdContent" class="mt-2"></div>
-      <div class="mt-2">
-        <a class="btn btn-outline-secondary btn-sm" id="rawMd" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/insights_recomendaciones.md" target="_blank">Ver raw MD</a>
-      </div>
-    </section>
+            <iframe src="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_RESUMEN]" 
+                    class="pdf-viewer" 
+                    title="Visor de PDF: Resumen Ejecutivo">
+                <p>Tu navegador no soporta PDFs embebidos. Puedes <a href="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_RESUMEN]" download="resumen_ejecutivo_arcor.pdf">descargar el PDF</a> en su lugar.</p>
+            </iframe>
 
-    <section id="charts" class="mb-4 card p-3">
-      <h2 class="h5">Visualizaciones interactivas</h2>
-      <p class="text-muted">Ejemplo: ROAS por campaña (datos de ejemplo).</p>
-      <canvas id="chart1" height="120"></canvas>
-    </section>
+            <a href="data:application/pdf;base64,[AQUÍ_VA_EL_BASE64_DEL_PDF_RESUMEN]" 
+               class="btn btn-primary download-btn" 
+               download="resumen_ejecutivo_arcor.pdf"
+               aria-label="Descargar Resumen Ejecutivo PDF">
+               Descargar Resumen (PDF)
+            </a>
+        </section>
 
-    <footer class="mt-4 text-center">
-      <small>© 2025 dsd228 — Marketing Performance Dashboard</small>
+        <!-- 4. Presentación (Enlace a Archivo Grande) -->
+        <section id="presentacion">
+            <h2>4. Presentación (PowerPoint)</h2>
+            <div class="alert alert-success" role="alert">
+                <strong>LÓGICA APLICADA:</strong> Este archivo (<code>presentacion_powerpoint.pptx</code>) se ha simulado como "archivo grande" (>= 5MB).
+                <br>
+                <strong>ACCIÓN REQUERIDA:</strong> Asegúrate de crear la carpeta <code>docs/assets/</code> y copiar <code>presentacion_powerpoint.pptx</code> dentro de ella. El enlace de descarga de abajo funcionará automáticamente.
+            </div>
+            
+            <p>La presentación de PowerPoint es un archivo grande y está disponible para descarga directa.</p>
+            
+            <a href="./assets/presentacion_powerpoint.pptx" 
+               class="btn btn-primary download-btn" 
+               download="presentacion_powerpoint.pptx"
+               aria-label="Descargar Presentación PPTX">
+               Descargar Presentación (PPTX)
+            </a>
+        </section>
+
+        <!-- 5. Insights y Recomendaciones (Markdown Renderizado) -->
+        <section id="insights">
+            <h2>5. Insights y Recomendaciones</h2>
+            <div class="alert alert-info" role="alert">
+                <strong>ACCIÓN REQUERIDA:</strong> Edita la variable <code>markdownContent</code> en el script al final de este archivo para pegar el contenido de tu archivo <code>insights_recomendaciones.md</code>.
+            </div>
+            
+            <div id="markdown-content-display">
+                <!-- El contenido se renderizará aquí por marked.js -->
+            </div>
+        </section>
+
+        <!-- 6. Visualizaciones Interactivas (Chart.js) -->
+        <section id="visualizaciones">
+            <h2>6. Visualización Interactiva (Ejemplo)</h2>
+            <div class="alert alert-success" role="alert">
+                <strong>DEMOSTRACIÓN:</strong> Se incluye un gráfico de Chart.js con datos de ejemplo.
+                <br>
+                <strong>ACCIÓN REQUERIDA:</strong> Si tienes un CSV, puedes editar el script al final de este archivo para reemplazar <code>exampleData</code> con los datos de tu CSV.
+            </div>
+            
+            <canvas id="myPerformanceChart"></canvas>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-4 bg-light mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 - Dashboard de Performance. Generado como archivo HTML autosuficiente.</p>
+        </div>
     </footer>
-  </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    // Render markdown from the repo raw URL
-    async function loadMarkdown(){
-      try{
-        const res = await fetch('https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/insights_recomendaciones.md');
-        if(!res.ok){ document.getElementById('mdContent').innerText = 'No se pudo cargar insights_recomendaciones.md'; return; }
-        const text = await res.text();
-        document.getElementById('mdContent').innerHTML = marked.parse(text);
-      }catch(e){ document.getElementById('mdContent').innerText = 'Error cargando markdown: '+e.message }
-    }
-    loadMarkdown();
+    <!-- CDNs de JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" xintegrity="sha384-BsoN/bXv/iN/XN+jMAXg23A/YISYO1CILiYNo+gW/y1S/J4t/6jHHD/yTjT5i/bC" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/lib/marked.umd.min.js" xintegrity="sha384-GfP9Gk/vK29wi1FjYJMMP5/y2p6eQ8L5vF8S/s/s7pRaACh1E/3/S/vLwP/3Z/5L" crossorigin="anonymous"></script>
 
-    // Sample chart (replace with real data if available)
-    const ctx = document.getElementById('chart1').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Campaña A','Campaña B','Campaña C','Campaña D'],
-        datasets: [{label:'ROAS',data:[3.2,2.1,4.0,1.8],backgroundColor:['#0b69ff','#0b69ff','#0b69ff','#0b69ff']}]
-      },
-      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
-    });
+    <!-- Script Principal Embebido -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // --- 5. Lógica de Renderizado de Markdown ---
+            try {
+                // Pega el contenido de 'insights_recomendaciones.md' aquí.
+                const markdownContent = `
+# Insights Clave y Recomendaciones
 
-    // Simple image zoom: open in new tab on click (can be replaced by lightbox)
-    document.getElementById('mainImage').addEventListener('click', function(){ window.open(this.src); });
-  </script>
+Este es un *placeholder* para tu contenido de Markdown.
+
+### Insight 1: Crecimiento en Canales Digitales
+El análisis muestra un **aumento del 35%** en la conversión a través de campañas de email marketing en el Q3.
+
+* **Recomendación:** Duplicar la inversión en la segmentación de audiencias para email.
+
+### Insight 2: Desempeño de Campaña
+La campaña "Verano Arcor" superó los KPIs en un 15%.
+
+| Campaña | ROI Esperado | ROI Real | Diferencia |
+| :--- | :--- | :--- | :--- |
+| Verano Arcor | 1.5 | 1.72 | +15% |
+| Pascua | 1.8 | 1.6 | -11% |
+
+* **Recomendación:** Analizar los componentes de la campaña "Pascua" para identificar áreas de mejora.
+
+### Código de Ejemplo de Tracking
+\`\`\`javascript
+// Ejemplo de cómo se mide la conversión
+function trackConversion(campaignId) {
+    console.log('Track', campaignId);
+    // analytics.track('Conversion', { campaign: campaignId });
+}
+\`\`\`
+`;
+                
+                const displayElement = document.getElementById("markdown-content-display");
+                if (displayElement && window.marked) {
+                    // Usar la API actualizada de marked (v5+)
+                    displayElement.innerHTML = window.marked.parse(markdownContent);
+                } else {
+                    displayElement.innerHTML = "<p>Error al cargar el renderizador de Markdown. Asegúrate de que marked.js está disponible.</p>";
+                    console.error("Marked.js no encontrado o elemento 'markdown-content-display' no existe.");
+                }
+            } catch (e) {
+                console.error("Error al renderizar Markdown:", e);
+                const displayElement = document.getElementById("markdown-content-display");
+                if(displayElement) displayElement.innerHTML = "<p>Ocurrió un error al procesar el Markdown.</p>";
+            }
+
+            // --- 6. Lógica del Gráfico (Chart.js) ---
+            try {
+                // Datos de ejemplo. Reemplaza esto con los datos de tu CSV.
+                const exampleData = {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    datasets: [
+                        {
+                            label: 'Inversión (en miles USD)',
+                            data: [50, 65, 70, 90],
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderWidth: 2,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Conversiones',
+                            data: [120, 150, 180, 210],
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderWidth: 2,
+                            tension: 0.1
+                        }
+                    ]
+                };
+
+                const ctx = document.getElementById('myPerformanceChart');
+                if (ctx && window.Chart) {
+                    new Chart(ctx, {
+                        type: 'line', // Tipo de gráfico (line, bar, pie, etc.)
+                        data: exampleData,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Rendimiento de Marketing (Ejemplo)'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    console.error("Chart.js no encontrado o canvas 'myPerformanceChart' no existe.");
+                }
+            } catch (e) {
+                console.error("Error al renderizar el gráfico:", e);
+                const chartElement = document.getElementById('myPerformanceChart');
+                if(chartElement) chartElement.getContext('2d').fillText("Error al cargar el gráfico.", 10, 50);
+            }
+
+            // Fallback por si los CDNs fallan (aunque no debería ser necesario para este caso)
+            if (!window.bootstrap) console.warn("Bootstrap JS no se cargó.");
+            if (!window.Chart) console.warn("Chart.js no se cargó.");
+            if (!window.marked) console.warn("Marked.js no se cargó.");
+
+        });
+    </script>
 </body>
 </html>

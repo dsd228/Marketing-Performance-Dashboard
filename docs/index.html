@@ -1,69 +1,73 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Marketing Performance Dashboard — Entregables</title>
-  <link rel="stylesheet" href="./styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Deliverables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        article {
+            padding: 20px;
+            background: #ffffff;
+            margin: 20px 0;
+        }
+        .embed {
+            width: 100%;
+            height: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        function showPDF(pdfUrl) {
+            window.open(pdfUrl);
+        }
+    </script>
 </head>
 <body>
-  <header class="site-header">
+    <header>
+        <h1>Project Deliverables</h1>
+    </header>
     <div class="container">
-      <h1>Marketing Performance Dashboard</h1>
-      <p class="tagline">Entregables y visualizaciones — HTML5 &amp; CSS3 responsive</p>
+        <article>
+            <h2>Images</h2>
+            <img src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/path/to/image.png" alt="Project Image">
+        </article>
+        <article>
+            <h2>PDFs</h2>
+            <button onclick="showPDF('https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/path/to/document.pdf')">View PDF</button>
+        </article>
+        <article>
+            <h2>Markdown</h2>
+            <p>This would be rendered Markdown content.</p>
+        </article>
+        <article>
+            <h2>PPTX Download</h2>
+            <a href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/path/to/presentation.pptx" download>PPTX Download</a>
+        </article>
     </div>
-  </header>
-
-  <main class="container">
-    <section class="grid">
-      <article class="card">
-        <h2>Resumen visual del dashboard</h2>
-        <a href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/resumen_visual_dashboard.png" target="_blank" rel="noopener">
-          <img alt="Resumen visual del dashboard" src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/resumen_visual_dashboard.png" />
-        </a>
-        <p>PNG generado desde el notebook. Haz click para abrir en nueva pestaña.</p>
-      </article>
-
-      <article class="card">
-        <h2>Informe de resultados (PDF)</h2>
-        <div class="file-embed">
-          <iframe src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/resultados/informe_resultados.pdf" title="Informe de resultados" loading="lazy"></iframe>
-        </div>
-        <p>PDF con el informe. Usa el icono de la esquina para descargar o ábrelo en otra pestaña.</p>
-      </article>
-
-      <article class="card">
-        <h2>Resumen ejecutivo (PDF)</h2>
-        <div class="file-embed">
-          <iframe src="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/resumen_ejecutivo_arcor.pdf" title="Resumen ejecutivo" loading="lazy"></iframe>
-        </div>
-        <p>Resumen ejecutivo en PDF.</p>
-      </article>
-
-      <article class="card">
-        <h2>Presentación (PPTX)</h2>
-        <p>Descarga la presentación:</p>
-        <p><a class="btn" href="https://raw.githubusercontent.com/dsd228/Marketing-Performance-Dashboard/arcor-marketing-analysis/presentacion/presentacion_powerpoint.pptx" target="_blank" rel="noopener">Descargar PPTX</a></p>
-      </article>
-
-      <article class="card">
-        <h2>Insights y recomendaciones</h2>
-        <p><a href="https://github.com/dsd228/Marketing-Performance-Dashboard/blob/arcor-marketing-analysis/resultados/insights_recomendaciones.md" target="_blank" rel="noopener">Ver insights_recomendaciones.md en GitHub</a></p>
-      </article>
-
-    </section>
-
-    <section class="notes">
-      <h3>Notas</h3>
-      <ul>
-        <li>Este sitio usa HTML5 y CSS3, está alojado con GitHub Pages (branch: arcor-marketing-analysis, folder: /docs).</li>
-        <li>Si añades nuevos archivos a las carpetas <code>resultados/</code> o <code>presentacion/</code>, actualiza este sitio para incluirlos.</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">© 2025 dsd228 — Marketing Performance Dashboard</div>
-  </footer>
 </body>
 </html>

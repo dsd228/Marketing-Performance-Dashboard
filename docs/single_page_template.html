@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Marketing Performance — Single File</title>
+  <style>
+    :root{--bg:#f6f8fb;--card:#fff;--accent:#0b69ff;--muted:#6b7280;--maxw:1100px}
+    *{box-sizing:border-box}
+    body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;margin:0;background:var(--bg);color:#111}
+    .wrap{max-width:var(--maxw);margin:28px auto;padding:16px}
+    header{display:flex;align-items:center;gap:16px}
+    header h1{margin:0;font-size:1.4rem}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(17,24,39,0.06)}
+    img.preview{width:100%;height:auto;border-radius:8px}
+    .file-embed{width:100%;height:560px;border:0;background:#eee;border-radius:8px;overflow:hidden}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    a.btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none}
+    pre.md{white-space:pre-wrap;background:#f8fafc;padding:12px;border-radius:8px;overflow:auto}
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:0.9rem}
+    @media(max-width:700px){.file-embed{height:380px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Marketing Performance — Entregables (single HTML)</h1>
+    </header>
+
+    <div class="grid">
+
+      <section class="card" id="visual">
+        <h2>Resumen visual</h2>
+        <!-- Imagen embebida como data URI -->
+        <img class="preview" alt="resumen visual" src="DATA_URI_IMAGE">
+        <div class="controls">
+          <a class="btn" href="DATA_URI_IMAGE" target="_blank" download="resumen_visual_dashboard.png">Abrir / Descargar imagen</a>
+        </div>
+      </section>
+
+      <section class="card" id="pdf1">
+        <h2>Informe de resultados (PDF)</h2>
+        <!-- PDF embebido en iframe usando data URI -->
+        <div class="file-embed">
+          <iframe src="DATA_URI_PDF" title="Informe de resultados" loading="lazy"></iframe>
+        </div>
+        <div class="controls">
+          <a class="btn" href="DATA_URI_PDF" target="_blank" download="informe_resultados.pdf">Abrir / Descargar PDF</a>
+        </div>
+      </section>
+
+      <section class="card" id="pdf2">
+        <h2>Resumen ejecutivo (PDF)</h2>
+        <div class="file-embed">
+          <iframe src="DATA_URI_PDF2" title="Resumen ejecutivo" loading="lazy"></iframe>
+        </div>
+        <div class="controls">
+          <a class="btn" href="DATA_URI_PDF2" target="_blank" download="resumen_ejecutivo_arcor.pdf">Abrir / Descargar PDF</a>
+        </div>
+      </section>
+
+      <section class="card" id="pptx">
+        <h2>Presentación (PPTX)</h2>
+        <p>Si el PPTX no se puede incrustar por tamaño, usa el enlace de descarga.</p>
+        <div class="controls">
+          <a class="btn" id="pptxLink" href="DATA_URI_PPTX" target="_blank" download="presentacion_powerpoint.pptx">Descargar PPTX</a>
+        </div>
+      </section>
+
+      <section class="card" id="md">
+        <h2>Insights y recomendaciones (Markdown)</h2>
+        <!-- El contenido MD se inserta como texto preformateado (se escapa) -->
+        <pre class="md">DATA_MD</pre>
+      </section>
+
+    </div>
+
+    <footer>© 2025 dsd228 — Marketing Performance Dashboard</footer>
+  </div>
+
+  <script>
+    // Si deseas hacer render ligero del markdown (muy básico)
+    (function(){
+      const pre = document.querySelector('pre.md');
+      const raw = pre.textContent;
+      // render simple: convertir líneas que empiezan con # en headings
+      const html = raw
+        .split('\\n').map(line=>{
+           if(/^###\\s+/.test(line)) return '<h3>'+line.replace(/^###\\s+/,'')+'</h3>';
+           if(/^##\\s+/.test(line)) return '<h2>'+line.replace(/^##\\s+/,'')+'</h2>';
+           if(/^#\\s+/.test(line)) return '<h1>'+line.replace(/^#\\s+/,'')+'</h1>';
+           return '<p>'+line+'</p>';
+        }).join('');
+      // reemplazar pre por contenedor renderizado
+      const container = document.createElement('div');
+      container.innerHTML = html;
+      pre.parentNode.replaceChild(container, pre);
+    })();
+  </script>
+</body>
+</html>

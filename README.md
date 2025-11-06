@@ -1,87 +1,83 @@
-# Proyecto: Marketing Digital y Análisis de Datos — EcoWave
+# Análisis Estratégico y Digital de Arcor
 
-Bienvenido al repositorio del proyecto profesional de Marketing Digital y Análisis de Datos basado en la marca ficticia **EcoWave** — una tienda online de productos sostenibles para el hogar y estilo de vida.
+Descripción
+----------
+Proyecto profesional de consultoría digital: "Análisis Estratégico y Digital de Arcor (Argentina)". Objetivo: evaluar presencia digital, analizar rendimiento de campañas publicitarias, extraer insights accionables y proponer una hoja de ruta operativa para optimizar inversión y conversión.
 
-Este proyecto está diseñado como ejemplo completo para demostrar competencias en:
-- Estrategia digital
-- Publicidad (Google Ads)
-- SEO y tráfico orgánico
-- Redes sociales y crecimiento
-- UX y customer journey
-- Analítica web (Google Analytics)
-- Visualización de datos (Python, Power BI / simulación)
-
-Objetivo
----------
-Proveer un conjunto práctico y reproducible de artefactos (estrategias, informes, notebooks y visualizaciones) que muestren el ciclo completo de una campaña digital: desde la planificación estratégica hasta el análisis de resultados y la presentación ejecutiva.
+Alcance
+-------
+- Investigación de marca y análisis competitivo.
+- Estrategias digitales (social media, publicidad online, customer journey).
+- Análisis de datos simulados (publicidad y tráfico web).
+- Notebooks reproducibles con Python (pandas, matplotlib, seaborn, statsmodels).
+- Dashboard interactivo en Streamlit para explorar métricas.
+- Informe ejecutivo y presentación visual.
 
 Herramientas usadas
 -------------------
-- Google Ads (planificación y simulación de resultados)
-- Google Analytics (medición de tráfico y eventos)
-- Power BI (mockup del dashboard y propuesta de visualización)
-- Canva (ejemplos de posts)
-- Python (pandas, matplotlib, seaborn) — notebooks incluidos
-- Excel (.xlsx) y CSV — datos tabulares y calendarios de contenidos
-- PowerPoint / PDF — presentación ejecutiva
+- Python (pandas, numpy, matplotlib, seaborn, statsmodels)
+- Streamlit
+- Excel (XLSX)
+- Canva (mockups creativos)
+- Google Ads (simulación de campañas)
+- Google Trends (contexto de demanda)
+- PowerPoint / PDF (presentación ejecutiva)
 
-Estructura de carpetas
-----------------------
-marketing-project/
+Estructura del repositorio
+--------------------------
+arcor-marketing-analysis/
 │
 ├── README.md
-├── estrategia_digital/              # Planificación, DAFO, buyer persona, customer journey
-├── campañas_ads/                    # Planes y resultados de campañas (Google Ads), AB tests
-├── redes_sociales/                  # Calendarios, estrategias y ejemplos creativos
-├── analitica_web/                   # Guía GA, KPIs y mockup Power BI
-├── visualizaciones/                 # Notebooks + imágenes de gráficas
-└── presentacion/                     # Resumen ejecutivo (PDF) y portfolio visual (PPTX)
+├── investigacion_marca/
+│   ├── analisis_general_arcor.md
+│   ├── mision_vision_valores.md
+│   ├── analisis_dafo.md
+│   └── competidores_principales.md
+│
+├── estrategias_digitales/
+│   ├── estrategia_redes_sociales.md
+│   ├── estrategia_publicitaria.md
+│   ├── plan_contenidos_mensual.csv
+│   └── customer_journey_arcor.md
+│
+├── analitica/
+│   ├── datos_publicidad.csv
+│   ├── datos_trafico_web.csv
+│   ├── analisis_metricas.ipynb
+│   ├── correlaciones_conversiones.ipynb
+│   └── dashboard_streamlit_app.py
+│
+├── resultados/
+│   ├── informe_resultados.pdf     (placeholder / export disponible)
+│   ├── insights_recomendaciones.md
+│   └── resumen_visual_dashboard.png (placeholder / export disponible)
+│
+└── presentacion/
+    ├── resumen_ejecutivo_arcor.pdf (placeholder / export disponible)
+    └── presentacion_powerpoint.pptx (placeholder / export disponible)
 
-Contenidos destacados
----------------------
-- Plan de marketing con objetivos SMART, segmentación y roadmap trimestral.
-- Simulación de campañas Google Ads con métricas: CTR, CPC, conversiones, ROAS.
-- Informe de ROAS / LTV / CAC con cálculos y recomendaciones de optimización.
-- Notebooks Python (`ventas_mensuales.ipynb`, `trafico_web.ipynb`) que reproducen análisis y gráficos con datos simulados.
-- CSVs y XLSX con datos de ejemplo (AB testing, calendario de contenidos, KPIs).
-- Presentación ejecutiva con conclusiones y acciones prioritarias.
-
-Cómo reproducir los análisis
-----------------------------
-1. Clona el repositorio:
+Cómo reproducir los análisis (resumen)
+-------------------------------------
+1. Clonar repo y cambiar a la rama:
    git clone https://github.com/dsd228/Marketing-Performance-Dashboard.git
-   cd Marketing-Performance-Dashboard/marketing-project
+   cd Marketing-Performance-Dashboard
+   git fetch origin
+   git checkout -b arcor-marketing-analysis origin/arcor-marketing-analysis
 
-2. Entorno Python recomendado:
-   - Python 3.9+
-   - Crear entorno virtual y activar:
-     python -m venv venv
-     source venv/bin/activate  (Linux/Mac)  o  venv\Scripts\activate (Windows)
-   - Instalar dependencias:
-     pip install pandas matplotlib seaborn notebook jupyterlab
+2. Crear entorno Python y dependencias:
+   python -m venv venv
+   source venv/bin/activate   (Linux/Mac) o venv\Scripts\activate (Windows)
+   pip install pandas numpy matplotlib seaborn statsmodels streamlit jupyterlab openpyxl
 
-3. Abrir y ejecutar los notebooks:
-   - jupyter lab
-   - Abrir `visualizaciones/dashboards/ventas_mensuales.ipynb` y `trafico_web.ipynb`
-   - Las celdas crean datos simulados, calculan KPIs (CTR, conversion_rate, ROAS, CAC, LTV) y generan gráficas.
+3. Ejecutar notebooks:
+   jupyter lab
+   - Abrir `analitica/analisis_metricas.ipynb` y `analitica/correlaciones_conversiones.ipynb`.
 
-4. Revisar informes y CSV:
-   - `analitica_web/informe_kpis.csv` contiene métricas mensuales simuladas.
-   - `campañas_ads/ab_testing_resultados.xlsx` (o abrir el CSV alternativo) contiene resultados A/B.
+4. Ejecutar dashboard:
+   streamlit run analitica/dashboard_streamlit_app.py
 
-5. Presentación:
-   - `presentacion/resumen_ejecutivo.pdf` y `presentacion/portfolio_visual.pptx` incluyen conclusiones y gráficos exportados desde los notebooks y Power BI mockup.
-
-Licencia
---------
-Este proyecto incluye una licencia MIT en el archivo LICENSE.
-
-Notas finales
--------------
-- Todos los datos son simulados y tienen finalidad educativa.
-- Se recomienda reemplazar las simulaciones con datos reales siguiendo la guía de `analitica_web/guia_google_analytics.md`.
-- Para dudas o adaptaciones (traducción, formato, exportación a Power BI real), contactar al autor.
-
-
-
-
+Notas
+-----
+- Los CSV contienen datos simulados diseñados para ser coherentes con métricas reales de mercado y permiten reproducir los KPIs del informe.
+- Los archivos PDF/PPTX están indicados como placeholders: se pueden exportar localmente desde los notebooks o creativos y luego subir como binarios al repo.
+- Licencia MIT incluida.
